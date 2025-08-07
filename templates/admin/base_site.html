@@ -1,0 +1,126 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}VBIS Admin Portal | CodeKnitters{% endblock %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #site-name {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    #site-name img {
+      height: 40px;
+      border-radius: 6px;
+    }
+
+    #site-name a {
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .custom-footer {
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 13px;
+      text-align: center;
+      border-top: 1px solid;
+    }
+
+    .custom-footer img {
+      height: 24px;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+
+    /* ------------------------- */
+    /* Dark Mode - Django Admin */
+    /* ------------------------- */
+    html.theme-dark body {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    html.theme-dark #site-name a {
+      color: #00e5ff;
+    }
+
+    html.theme-dark #site-name a:hover {
+      color: #1de9b6;
+    }
+
+    html.theme-dark .custom-footer {
+      background: #1e1e1e;
+      border-top-color: #333;
+      color: #ccc;
+    }
+
+    html.theme-dark .custom-footer a {
+      color: #00bcd4;
+    }
+
+    html.theme-dark .custom-footer a:hover {
+      color: #1de9b6;
+    }
+
+    /* ------------------------- */
+    /* Light Mode - Django Admin */
+    /* ------------------------- */
+    html.theme-light body {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    html.theme-light #site-name a {
+      color: #0077cc;
+    }
+
+    html.theme-light #site-name a:hover {
+      color: #005fa3;
+    }
+
+    html.theme-light .custom-footer {
+      background: #f4f4f4;
+      border-top-color: #ddd;
+      color: #333;
+    }
+
+    html.theme-light .custom-footer a {
+      color: #0077cc;
+    }
+
+    html.theme-light .custom-footer a:hover {
+      color: #005fa3;
+    }
+  </style>
+{% endblock %}
+
+{% block branding %}
+  <h1 id="site-name">
+    <img src="{% static 'images/logo.png' %}" alt="CodeKnitters Logo">
+    <a href="{% url 'admin:index' %}">Vehicle-Based Information System (VBIS)</a>
+  </h1>
+{% endblock %}
+
+{% block footer %}
+  <div class="custom-footer">
+    <p>
+      &copy; {{ now|date:"Y" }} 
+      <img src="{% static 'images/logo.png' %}" alt="CodeKnitters Logo">
+      <strong>CodeKnitters</strong> — All rights reserved.
+    </p>
+    <p>
+      First Floor, National Science and Technology Park, NUST, H-12, Islamabad, Pakistan<br>
+      <a href="mailto:ahsan@codeknitters.co">ahsan@codeknitters.co</a> |
+      <a href="https://codeknitters.co" target="_blank">codeknitters.co</a>
+    </p>
+  </div>
+{% endblock %}
